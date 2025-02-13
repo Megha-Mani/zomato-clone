@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zomato Clone</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <style>
+    
+            /* Navbar responsive adjustments */
+            .navbar-nav {
+                margin-left: auto;
+            }
+        
+            .navbar-nav .nav-item {
+                margin-right: 20px;
+            }
+        
+            /* Media queries for responsive adjustments */
+            @media (max-width: 575px) {
+                .navbar-nav .nav-item {
+                    margin-right: 10px;
+                }
+        
+                .navbar-brand {
+                    margin-left: 10px;
+                }
+        
+                .hero-section {
+                    margin-top: 50px;
+                }
+        
+                .input-group {
+                    width: 100%;
+                }
+        
+                .input-group-prepend {
+                    width: 100%;
+                }
+        
+                .long-search {
+                    width: 100%;
+                }
+        
+                .row {
+                    width: 100%;
+                    margin-left: 0;
+                }
+        
+                .h1 {
+                    font-size: 2.5rem;
+                }
+        
+                .h5 {
+                    font-size: 1rem;
+                }
+            }
+        
+            @media (min-width: 576px) and (max-width: 991px) {
+                .h1 {
+                    font-size: 3rem;
+                }
+        
+                .h5 {
+                    font-size: 1.2rem;
+                }
+            }
+        
+            @media (min-width: 992px) {
+                .h1 {
+                    font-size: 3.5rem;
+                }
+        
+                .h5 {
+                    font-size: 1.5rem;
+                }
+        
+                .navbar-nav .nav-item {
+                    margin-right: 30px;
+                }
+        
+                .input-group-prepend {
+                    width: 30%;
+                }
+        
+                .long-search {
+                    width: 70%;
+                }
+            }
+        
+            /* Ensure the image stretches properly */
+            img {
+                object-fit: cover;
+            }
+        
+            /* Adjust the section text to fit smaller screens */
+            .h1 {
+                font-size: 3rem;
+            }
+        
+            .h5 {
+                font-size: 1.2rem;
+            }
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black */
+        }
+        .hero-section {
+            padding: 100px 0; 
+        }
+
+        
+        .long-search {
+            width: 100%;
+        }
+
+        
+        .custom-word-spacing {
+            word-spacing: 5px;
+        }
+
+        
+        .custom-spacing {
+            margin-left: 30px;
+        }
+
+        .custom-spacing:last-child {
+            margin-right: 0;
+        }
+
+        
+        .hero-section h1,
+        .hero-section p {
+            font-size: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .hero-section h1 {
+                font-size: 3rem;
+            }
+
+            .hero-section p {
+                font-size: 2.5rem;
+            }
+            .position-absolute-section {
+                left: 80px;
+
+            
+            }
+            .form-search{
+                margin-left: 150px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-section h1 {
+                font-size: 4rem;
+            }
+
+            .hero-section p {
+                font-size: 3rem;
+            }
+            .position-absolute-section {
+                left: 100px;
+
+            
+            }
+            .form-search{
+                margin-left: 250px;
+            }
+
+        }
+        @media (min-width: 1200px) {
+            .position-absolute-section {
+                left: 120px;
+
+            
+            }
+        }
+        @media (min-width: 1400px) {
+            .position-absolute-section {
+                left: 250px;
+
+            
+            }
+        }
+        @media (min-width: 1600px) {
+
+            .position-absolute-section {
+                left: 428px;
+
+            
+            }
+        }
+        .custom-card {
+            border-radius: 15px;
+            overflow: hidden; 
+            margin: 15px 0;
+        }
+
+        .custom-img-height {
+            height: 250px;
+            object-fit: cover; 
+        }
+
+        
+        .responsive-card {
+            width: 100%;
+        }
+
+        .position-absolute-section {
+            display: flex;
+            position: absolute;
+            top: 90px;
+            color: white;
+        }
+        @media(min-width:425px){
+            .position-absolute-section {
+                top: 10px;
+            }
+            .form-search{
+                margin-left: 100px;
+            }
+        }
+    
+    
+
+    </style>
+</head>
+
+<body>
+   
+    <div class="container-fluid position-relative"> 
+<!-- Image as background -->
+        <img class="img-fluid" style="height: 75vh !important;" src="IMG-20250211-WA0043.jpg" alt="zomatoImage" width="100%">
+    
+<!-- Navbar inside the image -->
+        <nav class="navbar navbar-expand-lg bg-body-tertiary position-absolute w-100" style="top: 0; left: 0; z-index: 1;">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#" style="margin-left:100px;">Get the App</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#" style="margin-right:57px">Investor Relations</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#" style="margin-right:58px">Add restaurant</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#" style="margin-right:58px">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#" style="margin-right:60px">Sign up</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+<!-- Hero Section -->
+        <section class="hero-section text-center position-absolute-section">
+            <div class="container text-center">
+                <h1 class=""><b>Zomato</b></h1>
+                <p class="h5 mb-4 custom-word-spacing">Discover the best food & drinks in Chhindwara</p>
+                <div class="text-center mt-2 w-50">
+                        <div class="input-group form-search">
+                                <select class="form-select" aria-label="Location select">
+                                    <option>Chhindwara</option>
+                                    <option>Tamilnadu</option>
+                                    <option>Kerala</option>
+                                    <option>Karnataka</option>
+                                </select>
+                            <input type="text" class="form-control long-search" placeholder="Search for restaurant, cuisine, or a dish" style="width: 75%;">
+                        </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<!-- custom card -->    
+<div style="position: relative; margin-left: 100px" class="card mt-5 custom-card w-25">
+    <img src="dosa.jpeg" class="card-img-top custom-img-height" alt="50rem">
+     <p class="text-end" style="position: absolute; top: 10px; right: 10px; z-index: 1;">
+        <i class="fa-solid fa-magnifying-glass"></i>
+    </p>
+     <p class="text-end" style="position: absolute; top: 30px; right: 10px; z-index: 1;">
+        <i class="fa-solid fa-bars"></i>
+    </p>
+    <div class="card-body">
+        <h5 class="card-title">Order Online</h5>
+        <p class="card-text mb-2">Stay home and order to your doorstep</p>
+    </div>
+</div>
+ 
+<!-- locations -->
+<p style="margin-left:95px" class="display-5 mt-5">Popular locations in and around <b>Chhindwara</b></p>
+    <div class="ms-5">
+        <div class="card ms-5 responsive-card" style="width: 23%;">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <p class="h5">Chhindwara Locality</p>
+                        <p style="font-size:20px; margin-bottom:0px;">202 places</p>
+                    </div>
+                    <p class="text-end mb-0"><i class="fa-solid fa-greater-than"></i></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+ <!-- news letter -->
+ <div class="container-fluid mt-5">
+    <div class="container">
+        <div class="row ">
+            <div class="col-12 col-md-6 col-lg-6 col-sm-12">
+                <img class="img-fluid" src="https://b.zmtcdn.com/data/o2_assets/ce5bc038a8a2d4f8f24465c8826182af1726501431.png" height="" width="" alt="">
+            </div>
+            <div class="col-12 col-md-6 col-lg-6 col-sm-12 mt-5">
+                <h2>Get the Zomato app</h2>
+                <p>We will send you a link, open it on your phone to download the app</p>
+                <p><input type="radio" > Email &nbsp; &nbsp; <input type="radio" >  Phone</p>
+                <div class="input-group gap-5">
+                    <p><input type="text" class="form-control w-100">  </p>
+                <p><button class="btn btn-danger btn-lg">Share App Link</button></p>
+                </div>
+                <p>Download App from</p>
+                <div class="input-group">
+                    <p><img style="width:75%;" src="https://b.zmtcdn.com/data/webuikit/23e930757c3df49840c482a8638bf5c31556001144.png" alt="" ></p>
+                <p><img style="width:75%;" src="https://b.zmtcdn.com/data/webuikit/9f0c85a5e33adb783fa0aef667075f9e1556003622.png" alt=""></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!--news letter-->
+    <div class="container">
+    <p class="h2 mt-5">Explore options near me</p>
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <h2  class="accordion-header">
+            <button class="accordion-button text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Popular cuisines near me
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse hide" data-bs-parent="#accordionExample">
+            <div class="accordion-body"> <a href="#" class="" style="text-decoration:none; color:grey;">
+                Beverages near me &#183; Biryani near me &#183; Burger near me &#183; Cafe near me &#183; Chinese near me &#183; Coffee near me &#183; Desserts near me &#183; Ice Cream near me &#183; Italian near me&#183;
+                Momos near me &#183; Mughlai near me &#183; North Indian near me &#183; Pasta near me &#183; Pizza near me &#183; Rolls near me &#183; Sandwich near me &#183; Shake near me&#183;
+                South Indian near me &#183; Street near me &#183; Tea near me
+            </a></div>
+          </div>
+        </div>
+        
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Popular restaurant types near me
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div class="accordion-body"><a href="#" class="" style="text-decoration:none; color:grey;">
+                Bakeries near me &#183; Bars near me &#183; Beverage Shops near me &#183; Cafés near me &#183; Casual Dining near me &#183; Dessert Parlors near me &#183; Dhabas near me &#183; Fine Dining near me &#183; Food Trucks near me &#183; Kiosks near me &#183; Paan Shop near me &#183; Quick Bites near me &#183; Sweet Shops near me
+            </a></div>
+          </div>
+        </div>
+        
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Cities we deliver to
+                </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body"><a href="#" class="" style="text-decoration:none; color:grey;">
+                    <!-- First row of cities -->
+                    <div class="row">
+                        <div class="col-6 col-md-4 col-lg-2">
+                            <ul class="list-unstyled">
+                                <li>Delhi NCR</li>
+                                <li>Kolkata</li>
+                                <li>Mumbai</li>
+                                <li>Bengaluru</li>
+                                <li>Pune</li>
+                            </ul>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-2">
+                            <ul class="list-unstyled">
+                                <li>Hyderabad</li>
+                                <li>Chennai</li>
+                                <li>Lucknow</li>
+                                <li>Kochi</li>
+                                <li>Jaipur</li>
+                            </ul>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-2">
+                            <ul class="list-unstyled">
+                                <li>Ahmedabad</li>
+                                <li>Chandigarh</li>
+                                <li>Goa</li>
+                                <li>Indore</li>
+                                <li>Gangtok</li>
+                            </ul>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-2">
+                            <ul class="list-unstyled">
+                                <li>Nashik</li>
+                                <li>Ooty</li>
+                                <li>Shimla</li>
+                                <li>Ludhiana</li>
+                                <li>Guwahati</li>
+                            </ul>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-2">
+                            <ul class="list-unstyled">
+                                <li>Amritsar</li>
+                                <li>Kanpur</li>
+                                <li>Allahabad</li>
+                                <li>Aurangabad</li>
+                                <li>Bhopal</li>
+                            </ul>
+                        </div>
+                    </div>
+        
+                    <!-- Additional rows with similar structure -->
+                    <div class="row">
+                        <div class="col-6 col-md-4 col-lg-2">
+                            <ul class="list-unstyled">
+                                <li>Ranchi</li>
+                                <li>Visakhapatnam</li>
+                                <li>Bhubaneswar</li>
+                                <li>Coimbatore</li>
+                                <li>Mangalore</li>
+                            </ul>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-2">
+                            <ul class="list-unstyled">
+                                <li>Vadodara</li>
+                                <li>Nagpur</li>
+                                <li>Agra</li>
+                                <li>Dehradun</li>
+                                <li>Mysore</li>
+                            </ul>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-2">
+                            <ul class="list-unstyled">
+                                <li>Puducherry</li>
+                                <li>Surat</li>
+                                <li>Varanasi</li>
+                                <li>Patna</li>
+                                <li>Udaipur</li>
+                            </ul>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-2">
+                            <ul class="list-unstyled">
+                                <li>Srinagar</li>
+                                <li>Khajuraho</li>
+                                <li>Neemrana</li>
+                                <li>Cuttack</li>
+                                <li>Trivandrum</li>
+                            </ul>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-2">
+                            <ul class="list-unstyled">
+                                <li>Haridwar</li>
+                                <li>Leh</li>
+                                <li>Pushkar</li>
+                                <li>Rajkot</li>
+                                <li>Madurai</li>
+                            </ul>
+                        </div>
+                    </div>
+        
+                    <div class="row">
+                        <div class="col-6 col-md-4 col-lg-2">
+                            <ul class="list-unstyled">
+                                <li>Kozhikode</li>
+                                <li>Alappuzha</li>
+                                <li>Thrissur</li>
+                                <li>Manipal</li>
+                                <li>Vijayawada</li>
+                            </ul>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-2">
+                            <ul class="list-unstyled">
+                                <li>Jodhpur</li>
+                                <li>Kota</li>
+                                <li>Ajmer</li>
+                                <li>Mussoorie</li>
+                                <li>Rishikesh</li>
+                            </ul>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-2">
+                            <ul class="list-unstyled">
+                                <li>Jalandhar</li>
+                                <li>Jammu</li>
+                                <li>Manali</li>
+                                <li><u><b>All delivery cities</b></u></li>
+                                <li></li>
+                            </ul>
+                        </div>
+                    </div></a>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+</div>
+ </div>
+
+ <!--About-->
+ <div class="container-fluid mt-5 bg-light">
+    <div class="container">
+        <div class="row d-flex justify-content-end">
+            <div class="col">
+                <p class="h1 text-start mt-2 ">Zomato</p>
+            </div>
+            <div class="col-auto mt-0 ">
+                <!-- Default dropup button -->
+                <div class="btn-group dropup mt-4 ">
+                    <button style="margin-right:15px;" type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        India
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li>India</li>
+                        <li>UAE</li>
+                    </ul>
+                </div>
+
+                <!-- Split dropup button -->
+                <div class="btn-group dropup ms-2 mt-4 ">
+                    <button type="button" class="btn btn-secondary" >
+                        English
+                    </button>
+                    <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="visually-hidden">Toggle Dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li>English</li>
+                        <li>Türkçe</li>
+                        <li>हिंदी</li>
+                        <li>Português (BR)</li>
+                        <li>Indonesian</li>
+                        <li>Português (PT)</li>
+                        <li>Español</li>
+                        <li>Čeština</li>
+                        <li>Slovenčina</li>
+                        <li>Polish</li>
+                        <li>Italian</li>
+                        <li>Vietnamese</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+ 
+    <div class="container mt-5">
+        <div class="row">
+            <!-- Column 1: About Zomato -->
+            <div class="col-6 col-sm-6 col-md-2">
+                <ul style="list-style-type:none; padding-left:0" class="no-bullets">
+                    <li style="text-decoration:none; cursor:pointer;"><a href="#" style="text-decoration:none; color:black; font-size:15px;" class="no-bullets"><b>About Zomato</b></a></li>
+                    <li style="text-decoration:none; cursor:pointer;"><a href="#" style="text-decoration:none; color:grey;" class="no-bullets">Who We Are</a></li>
+                    <li style="text-decoration:none; cursor:pointer;"><a href="#" style="text-decoration:none; color:grey;" class="no-bullets">Blog</a></li>
+                    <li style="text-decoration:none; cursor:pointer;"><a href="#" style="text-decoration:none; color:grey;" class="no-bullets">Work With Us</a></li>
+                    <li style="text-decoration:none; cursor:pointer;"><a href="#" style="text-decoration:none; color:grey;" class="no-bullets">Investor Relations</a></li>
+                    <li style="text-decoration:none; cursor:pointer;"><a href="#" style="text-decoration:none; color:grey;" class="no-bullets">Report Fraud</a></li>
+                    <li style="text-decoration:none; cursor:pointer;"><a href="#" style="text-decoration:none; color:grey;" class="no-bullets">Press Kit</a></li>
+                    <li style="text-decoration:none; cursor:pointer;"><a href="#" style="text-decoration:none; color:grey;" class="no-bullets">Contact Us</a></li>
+                </ul>
+            </div>
+    
+            <!-- Column 2: ZOMAVERSE -->
+            <div class="col-6 col-sm-6 col-md-2">
+                <ul style="list-style-type:none; padding-left:0" class="no-bullets mx-3">
+                    <li style="text-decoration:none; cursor:pointer;"><a href="#" style="text-decoration:none; color:black; font-size:15px;" class="no-bullets"><b>ZOMAVERSE</b></a></li>
+                    <li style="text-decoration:none; cursor:pointer;"><a href="#" style="text-decoration:none; color:grey;" class="no-bullets">Zomato</a></li>
+                    <li style="text-decoration:none; cursor:pointer;"><a href="#" style="text-decoration:none; color:grey;" class="no-bullets">Blinkit</a></li>
+                    <li style="text-decoration:none; cursor:pointer;"><a href="#" style="text-decoration:none; color:grey;" class="no-bullets">District</a></li>
+                    <li style="text-decoration:none; cursor:pointer;"><a href="#" style="text-decoration:none; color:grey;" class="no-bullets">Feeding India</a></li>
+                    <li style="text-decoration:none; cursor:pointer;"><a href="#" style="text-decoration:none; color:grey;" class="no-bullets">Hyperpure</a></li>
+                    <li style="text-decoration:none; cursor:pointer;"><a href="#" style="text-decoration:none; color:grey;" class="no-bullets">Zomato Live</a></li>
+                    <li style="text-decoration:none; cursor:pointer;"><a href="#" style="text-decoration:none; color:grey;" class="no-bullets">Zomaland</a></li>
+                    <li style="text-decoration:none; cursor:pointer;"><a href="#" style="text-decoration:none; color:grey;" class="no-bullets">Weather Union</a></li>
+                </ul>
+            </div>
+    
+            <!-- Column 3: FOR RESTAURANTS -->
+            <div class="col-6 col-sm-6 col-md-2">
+                <ul style="list-style-type:none; padding-left:0" class="no-bullets mx-2">
+                    <li style="text-decoration:none; cursor:pointer;"><a href="#" style="text-decoration:none; color:black; font-size:15px;" class="no-bullets"><b>FOR RESTAURANTS</b></a></li>
+                    <li style="text-decoration:none; cursor:pointer;"><a href="#" style="text-decoration:none; color:grey;" class="no-bullets">Partner With Us</a></li>
+                    <li style="text-decoration:none; cursor:pointer;"><a href="#" style="text-decoration:none; color:grey;" class="no-bullets">Apps For You</a></li>
+                    <li style="text-decoration:none; cursor:pointer;"><a href="#" style="text-decoration:none; color:grey;" class="no-bullets">Work With Us</a></li>
+                </ul>
+            </div>
+    
+            <!-- Column 4: LEARN MORE -->
+            <div class="col-6 col-sm-6 col-md-2">
+                <ul style="list-style-type:none; padding-left:0" class="no-bullets mx-4">
+                    <li style="text-decoration:none; cursor:pointer;"><a href="#" style="text-decoration:none; color:black; font-size:15px;" class="no-bullets"><b>LEARN MORE</b></a></li>
+                    <li style="text-decoration:none; cursor:pointer;"><a href="#" style="text-decoration:none; color:grey;" class="no-bullets">Privacy</a></li>
+                    <li style="text-decoration:none; cursor:pointer;"><a href="#" style="text-decoration:none; color:grey;" class="no-bullets">Security</a></li>
+                    <li style="text-decoration:none; cursor:pointer;"><a href="#" style="text-decoration:none; color:grey;" class="no-bullets">Terms</a></li>
+                </ul>
+            </div>
+    
+            <!-- Column 5: SOCIAL LINKS -->
+            <div class="col-6 col-sm-6 col-md-2">
+                <ul style="list-style-type:none; padding-left:0" class="no-bullets mx-4">
+                    <li style="text-decoration:none; cursor:pointer;"><a href="#" style="text-decoration:none;  color:black; font-size:15px;" class="no-bullets"><b>SOCIAL LINKS</b></a></li>
+                        <div class="input-group gap-2">
+                            <i  class="fa-brands fa-linkedin gap-1"></i><i class="fa-brands fa-square-instagram"></i><i class="fa-brands fa-square-x-twitter"></i><i class="fa-brands fa-youtube"></i><i class="fa-brands fa-facebook"></i>
+                            
+                        </div> 
+                    <div class="input-group">
+                        <p><img style="width:100%;" src="https://b.zmtcdn.com/data/webuikit/9f0c85a5e33adb783fa0aef667075f9e1556003622.png" alt="" ></p>
+                    <p><img style="width:100%;" src="https://b.zmtcdn.com/data/webuikit/23e930757c3df49840c482a8638bf5c31556001144.png" alt=""></p>
+                    </div>   
+                </ul>
+            </div>
+        </div>
+    </div>
+ 
+<!--footer--> 
+<div class="container">
+<footer>
+    <hr>
+    <p style="margin-top:20px; font-size:14px">
+        By continuing past this page, you agree to our Terms of Service, Cookie Policy, Privacy Policy and Content Policies. All trademarks are properties of their respective owners. 2008-</p>
+        <p>2025 © Zomato™ Ltd. All rights reserved.
+    </p>
+</footer>
+</div>
+
+
+ </div>
+  
+</body>
+</html>
+
